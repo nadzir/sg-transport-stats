@@ -11,8 +11,8 @@ const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
 export class MainMap extends React.Component<IMainMapProps, {}> {
   public static defaultProps: Partial<IMainMapProps> = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 1.29027,
+      lng: 103.851959
     },
     zoom: 11
   };
