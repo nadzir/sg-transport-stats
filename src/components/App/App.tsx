@@ -8,7 +8,6 @@ import { Echo } from "@src/components/Echo";
 import { CounterContainer } from "@src/containers/Counter";
 
 // Let webpack instead of ts handle these imports
-const hello = require("./hello.jpg");
 const styles = require("./styles.scss");
 
 // Include global CSS and variables
@@ -58,17 +57,6 @@ class InnerApp extends React.Component<{}, {}> {
               )}
             />
           </Switch>
-        </Box>
-
-        <Box>
-          <div>
-            {/* Styling with CSS modules */}
-            <img className={styles.robot} src={hello} alt="Cute robot?" />
-
-            {/* Using other components */}
-            <Echo text="Hello, world!" />
-            <Link to="/no-page-lives-here">Link to example error page</Link>
-          </div>
         </Box>
 
         {/* Example DOM for nested CSS */}
