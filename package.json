@@ -32,7 +32,10 @@
     "tsc:check": "tsc --noEmit --skipLibCheck && yarn tsc:check-config"
   },
   "dependencies": {
+    "@types/google-map-react": "^0.23.9",
     "connected-react-router": "^4.5.0",
+    "dotenv-webpack": "^1.5.7",
+    "google-map-react": "^1.1.0",
     "history": "^4.7.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

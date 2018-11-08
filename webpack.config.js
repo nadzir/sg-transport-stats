@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackShellPlugin = require("webpack-shell-plugin");
+const Dotenv = require("dotenv-webpack");
 const HistoryApiFallback = require("./webpack-serve/historyApiFallback");
 
 const { config } = require("./config/build");
@@ -90,6 +91,7 @@ module.exports = {
   },
 
   plugins: [
+    new Dotenv(),
     // Inject app config at build-time: see comments in config/index.ts for details
     new webpack.DefinePlugin({
       __WEBPACK_DEFINE_CONFIG_JS_OBJ__: JSON.stringify(config)
