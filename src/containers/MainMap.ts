@@ -1,4 +1,3 @@
-// import { decrement, increment, incrementAsync } from "@src/actions";
 import {
   containerElement,
   IMainMapProps,
@@ -11,17 +10,12 @@ import { RootDispatch, RootState } from "@src/types";
 import { withGoogleMap, withScriptjs } from "react-google-maps";
 import { connect } from "react-redux";
 import { compose, lifecycle, withProps } from "recompose";
-declare var google: any;
 
 const mapStateToProps = (state: RootState): ICountersState => ({
   value: state.counters.value
 });
 
-const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
-  //   onDecrementClick: () => dispatch(decrement()),
-  //   onIncrementClick: () => dispatch(increment()),
-  //   onIncrementClickAsync: () => dispatch(incrementAsync())
-});
+const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({});
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
 const googleMapReactProps = withProps({
@@ -31,7 +25,7 @@ const googleMapReactProps = withProps({
   mapElement
 });
 
-const componentDidMount = lifecycle({
+const componentDidMount = lifecycle<IMainMapProps, {}>({
   componentDidMount() {
     const DirectionsService = new google.maps.DirectionsService();
 
