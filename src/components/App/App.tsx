@@ -6,7 +6,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import { config } from "@cfg";
 import { Echo } from "@src/components/Echo";
 import { CounterContainer } from "@src/containers/Counter";
-import { MainMap } from "../MainMap";
+import { MainMapContainer } from "@src/containers/MainMap";
 
 // Let webpack instead of ts handle these imports
 const styles = require("./styles.scss");
@@ -28,7 +28,7 @@ class InnerApp extends React.Component<{}, {}> {
   public render() {
     return (
       <div>
-        <MainMap />
+        <MainMapContainer />
       </div>
     );
   }
