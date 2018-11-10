@@ -3,6 +3,7 @@ import { DirectionsRenderer, GoogleMap, Polyline } from "react-google-maps";
 
 export interface IMainMapProps {
   directions?: google.maps.DirectionsResult;
+  setDirections: (direction: google.maps.DirectionsResult) => any;
 }
 
 export const containerElement = <div style={{ height: `1000px` }} />;

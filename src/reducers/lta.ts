@@ -6,6 +6,7 @@ import { getType } from "typesafe-actions";
 
 export interface ILtaState {
   busStops: ltaBusStop[];
+  directions?: google.maps.DirectionsResult;
 }
 
 const initValue = {
@@ -21,6 +22,11 @@ export const ltaReducer = (
       return {
         ...state,
         busStops: action.payload.busStops
+      };
+    case getType(actions.setDirections):
+      return {
+        ...state,
+        directions: action.payload.directions
       };
     default:
       return state;
