@@ -6,15 +6,15 @@ import {
   MainMap,
   mapElement
 } from "@src/components/MainMap";
-import { ICountersState } from "@src/reducers/counter";
+import { IMapState } from "@src/reducers/map";
 import { directionService } from "@src/services/direction";
 import { RootDispatch, RootState } from "@src/types";
 import { withGoogleMap, withScriptjs } from "react-google-maps";
 import { connect } from "react-redux";
 import { compose, lifecycle, withProps } from "recompose";
 
-const mapStateToProps = (state: RootState): ICountersState => ({
-  value: state.counters.value
+const mapStateToProps = (state: RootState): IMapState => ({
+  directions: state.map.directions
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
@@ -32,8 +32,8 @@ const googleMapReactProps = withProps({
 
 const componentDidMount = lifecycle<IMainMapProps, {}>({
   componentDidMount() {
-    const destination = new google.maps.LatLng(41.85258, -87.65141);
-    const origin = new google.maps.LatLng(41.85073, -87.65126);
+    const destination = new google.maps.LatLng(1.383764, 103.7583);
+    const origin = new google.maps.LatLng(1.297709, 103.85322474);
     directionService(destination, origin, this.props.addDirection);
   }
 });

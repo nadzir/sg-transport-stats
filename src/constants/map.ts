@@ -1,0 +1,3 @@
+export const DEFAULT_LAT_SINGAPORE = 1.3521;
+export const DEFAULT_LNG_SINGAPORE = 103.8198;
+export const DEFAULT_MAP_ZOOM = 12;
