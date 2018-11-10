@@ -9,7 +9,10 @@ export const directionService = (
     {
       destination,
       origin,
-      travelMode: google.maps.TravelMode.DRIVING
+      transitOptions: {
+        modes: [google.maps.TransitMode.BUS]
+      },
+      travelMode: google.maps.TravelMode.TRANSIT
     },
     (result, status) => {
       if (status === google.maps.DirectionsStatus.OK) {
