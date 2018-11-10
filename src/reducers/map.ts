@@ -4,23 +4,23 @@ import { RootAction } from "@src/types";
 import { ltaBusStop } from "lta";
 import { getType } from "typesafe-actions";
 
-export interface ILtaState {
-  busStops: ltaBusStop[];
+export interface IMapState {
+  directions: google.maps.DirectionsResult[];
 }
 
 const initValue = {
-  busStops: busStopData.value
+  directions: []
 };
 
-export const ltaReducer = (
-  state: ILtaState = initValue,
+export const mapReducer = (
+  state: IMapState = initValue,
   action: RootAction
-): ILtaState => {
+): IMapState => {
   switch (action.type) {
-    case getType(actions.setBusStops):
+    case getType(actions.addDirection):
       return {
         ...state,
-        busStops: action.payload.busStops
+        directions: (state.directions || []).concat(action.payload.direction)
       };
     default:
       return state;
