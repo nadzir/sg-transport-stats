@@ -8,8 +8,7 @@ export const setBusStops = createAction(
   resolve => (busStops: ltaBusStop[]) => resolve({ busStops })
 );
 
-export const setDirections = createAction(
-  "SET_DIRECTIONS",
-  resolve => (directions: google.maps.DirectionsResult) =>
-    resolve({ directions })
+export const addDirection = createAction(
+  "ADD_DIRECTION",
+  resolve => (direction: google.maps.DirectionsResult) => resolve({ direction })
 );

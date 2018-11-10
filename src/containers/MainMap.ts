@@ -1,4 +1,4 @@
-import { setDirections } from "@src/actions";
+import { addDirection } from "@src/actions";
 import {
   containerElement,
   IMainMapProps,
@@ -7,7 +7,7 @@ import {
   mapElement
 } from "@src/components/MainMap";
 import { ICountersState } from "@src/reducers/counter";
-import { getDirection } from "@src/services/direction";
+import { directionService } from "@src/services/direction";
 import { RootDispatch, RootState } from "@src/types";
 import { withGoogleMap, withScriptjs } from "react-google-maps";
 import { connect } from "react-redux";
@@ -18,8 +18,8 @@ const mapStateToProps = (state: RootState): ICountersState => ({
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
-  setDirections: (direction: google.maps.DirectionsResult) =>
-    dispatch(setDirections(direction))
+  addDirection: (direction: google.maps.DirectionsResult) =>
+    dispatch(addDirection(direction))
 });
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
@@ -32,7 +32,9 @@ const googleMapReactProps = withProps({
 
 const componentDidMount = lifecycle<IMainMapProps, {}>({
   componentDidMount() {
-    getDirection(this.props.setDirections);
+    const destination = new google.maps.LatLng(41.85258, -87.65141);
+    const origin = new google.maps.LatLng(41.85073, -87.65126);
+    directionService(destination, origin, this.props.addDirection);
   }
 });
 
