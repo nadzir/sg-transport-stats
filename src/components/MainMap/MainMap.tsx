@@ -3,12 +3,14 @@ import {
   DEFAULT_LNG_SINGAPORE,
   DEFAULT_MAP_ZOOM
 } from "@src/constants/map";
+import { ltaBusStop } from "lta";
 import React from "react";
 import { DirectionsRenderer, GoogleMap, Polyline } from "react-google-maps";
 
 export interface IMainMapProps {
+  busStops?: ltaBusStop[];
   directions?: google.maps.DirectionsResult[];
-  addDirection: (direction: google.maps.DirectionsResult) => any;
+  addDirection?: (direction: google.maps.DirectionsResult) => any;
 }
 
 export const containerElement = <div style={{ height: `1000px` }} />;
@@ -24,16 +26,19 @@ export class MainMap extends React.Component<Partial<IMainMapProps>, {}> {
           new google.maps.LatLng(DEFAULT_LAT_SINGAPORE, DEFAULT_LNG_SINGAPORE)
         }
       >
-        {/* <Polyline
-          path={[
-            { lat: -34.397, lng: 150.644 },
-            { lat: -34.397, lng: 155.644 }
-          ]}
-          options={{ strokeColor: "#ff0000" }}
-        /> */}
-        {this.directions()}
+        {this.polyline()}
+        {/* {this.directions()} */}
       </GoogleMap>
     );
+  }
+
+  private polyline() {
+    return (this.props.directions || []).map(direction => (
+      <Polyline
+        path={direction.routes[0].overview_path}
+        options={{ strokeColor: "#ff0000" }}
+      />
+    ));
   }
 
   private directions() {

@@ -1,3 +1,5 @@
+import { number } from "prop-types";
+
 declare module "lta" {
 
     interface ltaBusStop {
@@ -6,6 +8,16 @@ declare module "lta" {
         Latitude: number,
         Longitude: number,
         RoadName: string
+    }
+
+    interface ltaPassengerVolume {
+        YEAR_MONTH: string,
+        DAY_TYPE: string,
+        TIME_PER_HOUR: string,
+        PT_TYPE: string,
+        ORIGIN_PT_CODE: string,
+        DESTINATION_PT_CODE: string,
+        TOTAL_TRIPS: number
     }
 
 }

@@ -1,11 +1,12 @@
+import { busStopData } from "@data";
 import * as actions from "@src/actions";
-import { busStopData } from "@src/data/busstop";
 import { RootAction } from "@src/types";
-import { ltaBusStop } from "lta";
+import { ltaBusStop, ltaPassengerVolume } from "lta";
 import { getType } from "typesafe-actions";
 
 export interface ILtaState {
   busStops: ltaBusStop[];
+  passengerVolumes: ltaPassengerVolume[];
 }
 
 const initValue = {

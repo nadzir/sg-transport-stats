@@ -1,7 +1,5 @@
 import * as actions from "@src/actions";
-import { busStopData } from "@src/data/busstop";
 import { RootAction } from "@src/types";
-import { ltaBusStop } from "lta";
 import { getType } from "typesafe-actions";
 
 export interface IMapState {

@@ -6,14 +6,16 @@ import {
   MainMap,
   mapElement
 } from "@src/components/MainMap";
-import { IMapState } from "@src/reducers/map";
 import { directionService } from "@src/services/direction";
 import { RootDispatch, RootState } from "@src/types";
+import { noop } from "lodash";
+import { ltaBusStop } from "lta";
 import { withGoogleMap, withScriptjs } from "react-google-maps";
 import { connect } from "react-redux";
 import { compose, lifecycle, withProps } from "recompose";
 
-const mapStateToProps = (state: RootState): IMapState => ({
+const mapStateToProps = (state: RootState): IMainMapProps => ({
+  busStops: state.lta.busStops,
   directions: state.map.directions
 });
 
@@ -32,9 +34,36 @@ const googleMapReactProps = withProps({
 
 const componentDidMount = lifecycle<IMainMapProps, {}>({
   componentDidMount() {
-    const destination = new google.maps.LatLng(1.383764, 103.7583);
-    const origin = new google.maps.LatLng(1.297709, 103.85322474);
-    directionService(destination, origin, this.props.addDirection);
+    const { busStops } = this.props;
+    let previousStop: ltaBusStop;
+    // (busStops || []).forEach((busStop, index) => {
+    //   if (previousStop) {
+    //     const origin = previousStop;
+    //     const destination = busStop;
+    //     // console.log(previousStop)
+    //     // console.log(busStop)
+    //     setTimeout(
+    //       () =>
+    //         directionService(
+    //           new google.maps.LatLng(
+    //             destination.Latitude,
+    //             destination.Longitude
+    //           ),
+    //           new google.maps.LatLng(origin.Latitude, origin.Longitude),
+    //           this.props.addDirection ? this.props.addDirection : noop
+    //         ),
+    //       100 * index
+    //     );
+    //   }
+    //   previousStop = busStop;
+    // });
+    // const destination = new google.maps.LatLng(1.383764, 103.7583);
+    // const origin = new google.maps.LatLng(1.297709, 103.85322474);
+    // directionService(
+    //   destination,
+    //   origin,
+    //   this.props.addDirection ? this.props.addDirection : noop
+    // );
   }
 });
 
