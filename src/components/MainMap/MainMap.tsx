@@ -11,6 +11,7 @@ export interface IMainMapProps {
   busStops?: ltaBusStop[];
   directions?: google.maps.DirectionsResult[];
   addDirection?: (direction: google.maps.DirectionsResult) => any;
+  loadPassengerVolAsync?: () => any;
 }
 
 export const containerElement = <div style={{ height: `1000px` }} />;

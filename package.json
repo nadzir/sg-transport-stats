@@ -36,6 +36,7 @@
     "@types/googlemaps": "^3.30.16",
     "@types/lodash": "^4.14.118",
     "@types/recompose": "^0.27.0",
+    "axios": "^0.18.0",
     "connected-react-router": "^4.5.0",
     "dotenv-webpack": "^1.5.7",
     "google-map-react": "^1.1.0",

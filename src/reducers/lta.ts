@@ -1,16 +1,16 @@
-import { busStopData } from "@data";
+// import { busStopData } from "@data";
 import * as actions from "@src/actions";
 import { RootAction } from "@src/types";
 import { ltaBusStop, ltaPassengerVolume } from "lta";
 import { getType } from "typesafe-actions";
 
 export interface ILtaState {
-  busStops: ltaBusStop[];
-  passengerVolumes: ltaPassengerVolume[];
+  busStops?: ltaBusStop[];
+  passengerVolumes?: ltaPassengerVolume[];
 }
 
 const initValue = {
-  busStops: busStopData.value
+  // busStops: busStopData.value
 };
 
 export const ltaReducer = (
@@ -23,6 +23,12 @@ export const ltaReducer = (
         ...state,
         busStops: action.payload.busStops
       };
+    case getType(actions.setPassengerVols):
+      return {
+        ...state,
+        passengerVolumes: action.payload.passengerVols
+      };
+
     default:
       return state;
   }

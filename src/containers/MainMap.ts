@@ -1,4 +1,4 @@
-import { addDirection } from "@src/actions";
+import { addDirection, loadPassengerVolAsync } from "@src/actions";
 import {
   containerElement,
   IMainMapProps,
@@ -21,7 +21,8 @@ const mapStateToProps = (state: RootState): IMainMapProps => ({
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
   addDirection: (direction: google.maps.DirectionsResult) =>
-    dispatch(addDirection(direction))
+    dispatch(addDirection(direction)),
+  loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync())
 });
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
@@ -35,7 +36,10 @@ const googleMapReactProps = withProps({
 const componentDidMount = lifecycle<IMainMapProps, {}>({
   componentDidMount() {
     const { busStops } = this.props;
-    let previousStop: ltaBusStop;
+    this.props.loadPassengerVolAsync
+      ? this.props.loadPassengerVolAsync()
+      : noop();
+    // let previousStop: ltaBusStop;
     // (busStops || []).forEach((busStop, index) => {
     //   if (previousStop) {
     //     const origin = previousStop;
