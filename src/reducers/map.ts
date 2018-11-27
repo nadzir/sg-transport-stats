@@ -4,6 +4,7 @@ import { getType } from "typesafe-actions";
 
 export interface IMapState {
   directions: google.maps.DirectionsResult[];
+  time?: string;
 }
 
 const initValue = {
@@ -19,6 +20,11 @@ export const mapReducer = (
       return {
         ...state,
         directions: (state.directions || []).concat(action.payload.direction)
+      };
+    case getType(actions.setTime):
+      return {
+        ...state,
+        time: action.payload.time
       };
     default:
       return state;

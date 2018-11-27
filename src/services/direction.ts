@@ -4,6 +4,7 @@ export const directionService = (
   cb: (directions: google.maps.DirectionsResult) => any
 ) => {
   const DirectionsService = new google.maps.DirectionsService();
+  // console.log(destination,origin)
 
   DirectionsService.route(
     {

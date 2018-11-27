@@ -7,6 +7,7 @@ import { config } from "@cfg";
 import { Echo } from "@src/components/Echo";
 import { CounterContainer } from "@src/containers/Counter";
 import { MainMapContainer } from "@src/containers/MainMap";
+import { OneMapContainer } from "@src/containers/OneMap";
 
 // Let webpack instead of ts handle these imports
 const styles = require("./styles.scss");
@@ -28,7 +29,8 @@ class InnerApp extends React.Component<{}, {}> {
   public render() {
     return (
       <div>
-        <MainMapContainer />
+        {/* <MainMapContainer /> */}
+        <OneMapContainer />
       </div>
     );
   }

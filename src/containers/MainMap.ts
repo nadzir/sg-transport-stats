@@ -1,4 +1,4 @@
-import { addDirection, loadPassengerVolAsync } from "@src/actions";
+import { addDirection, loadPassengerVolAsync, setTime } from "@src/actions";
 import {
   containerElement,
   IMainMapProps,
@@ -9,20 +9,22 @@ import {
 import { directionService } from "@src/services/direction";
 import { RootDispatch, RootState } from "@src/types";
 import { noop } from "lodash";
-import { ltaBusStop } from "lta";
 import { withGoogleMap, withScriptjs } from "react-google-maps";
 import { connect } from "react-redux";
 import { compose, lifecycle, withProps } from "recompose";
 
 const mapStateToProps = (state: RootState): IMainMapProps => ({
   busStops: state.lta.busStops,
-  directions: state.map.directions
+  directions: state.map.directions,
+  passengerVols: state.lta.passengerVolumes,
+  time: state.map.time || "0"
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
   addDirection: (direction: google.maps.DirectionsResult) =>
     dispatch(addDirection(direction)),
-  loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync())
+  loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync()),
+  setTime: (time: string) => dispatch(setTime(time))
 });
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
@@ -35,39 +37,9 @@ const googleMapReactProps = withProps({
 
 const componentDidMount = lifecycle<IMainMapProps, {}>({
   componentDidMount() {
-    const { busStops } = this.props;
     this.props.loadPassengerVolAsync
       ? this.props.loadPassengerVolAsync()
       : noop();
-    // let previousStop: ltaBusStop;
-    // (busStops || []).forEach((busStop, index) => {
-    //   if (previousStop) {
-    //     const origin = previousStop;
-    //     const destination = busStop;
-    //     // console.log(previousStop)
-    //     // console.log(busStop)
-    //     setTimeout(
-    //       () =>
-    //         directionService(
-    //           new google.maps.LatLng(
-    //             destination.Latitude,
-    //             destination.Longitude
-    //           ),
-    //           new google.maps.LatLng(origin.Latitude, origin.Longitude),
-    //           this.props.addDirection ? this.props.addDirection : noop
-    //         ),
-    //       100 * index
-    //     );
-    //   }
-    //   previousStop = busStop;
-    // });
-    // const destination = new google.maps.LatLng(1.383764, 103.7583);
-    // const origin = new google.maps.LatLng(1.297709, 103.85322474);
-    // directionService(
-    //   destination,
-    //   origin,
-    //   this.props.addDirection ? this.props.addDirection : noop
-    // );
   }
 });
 
