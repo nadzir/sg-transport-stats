@@ -47,6 +47,7 @@
     "google-map-react": "^1.1.0",
     "history": "^4.7.2",
     "leaflet": "^1.3.4",
+    "polyline-encoded": "^0.0.8",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-google-maps": "^9.4.5",

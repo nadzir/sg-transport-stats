@@ -17,12 +17,10 @@ const mapStateToProps = (state: RootState): IMainMapProps => ({
   busStops: state.lta.busStops,
   directions: state.map.directions,
   passengerVols: state.lta.passengerVolumes,
-  time: state.map.time || "0"
+  time: state.map.time || 10
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
-  addDirection: (direction: google.maps.DirectionsResult) =>
-    dispatch(addDirection(direction)),
   loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync()),
   setTime: (time: string) => dispatch(setTime(time))
 });

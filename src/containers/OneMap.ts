@@ -21,7 +21,7 @@ const componentDidMount = lifecycle<IOneMapProps, {}>({
       ? this.props.loadPassengerVolAsync()
       : noop();
 
-    changeTime(this.props.setTime, "5");
+    // changeTime(this.props.setTime, "5");
   }
 });
 
