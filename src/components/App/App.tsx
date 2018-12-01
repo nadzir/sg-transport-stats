@@ -1,5 +1,4 @@
 import { MainMapContainer } from "@src/containers/MainMap";
-import { OneMapContainer } from "@src/containers/OneMap";
 import * as React from "react";
 import { hot } from "react-hot-loader";
 
@@ -23,7 +22,6 @@ class InnerApp extends React.Component<{}, {}> {
   public render() {
     return (
       <div>
-        {/* <OneMapContainer /> */}
         <MainMapContainer />
       </div>
     );

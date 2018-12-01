@@ -1,5 +1,3 @@
-import { RangeSlider } from "@blueprintjs/core";
-import { Example } from "@blueprintjs/docs-theme";
 import {
   DEFAULT_LAT_SINGAPORE,
   DEFAULT_LNG_SINGAPORE,
@@ -8,6 +6,7 @@ import {
 import { ltaBusStop, ltaPassengerVolume } from "lta";
 import React, { Fragment } from "react";
 import { DirectionsRenderer, GoogleMap, Polyline } from "react-google-maps";
+import { darkStyle } from "./MainMap.constants";
 
 export interface IMainMapProps {
   busStops?: ltaBusStop[];
@@ -23,174 +22,6 @@ export const containerElement = <div style={{ height: `1000px` }} />;
 export const loadingElement = <div style={{ height: `100%` }} />;
 export const mapElement = <div style={{ height: `100%` }} />;
 
-const exampleMapStyles = [
-  {
-    featureType: "all",
-    elementType: "labels.text.fill",
-    stylers: [
-      {
-        saturation: 36
-      },
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 40
-      }
-    ]
-  },
-  {
-    featureType: "all",
-    elementType: "labels.text.stroke",
-    stylers: [
-      {
-        visibility: "on"
-      },
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 16
-      }
-    ]
-  },
-  {
-    featureType: "all",
-    elementType: "labels.icon",
-    stylers: [
-      {
-        visibility: "off"
-      }
-    ]
-  },
-  {
-    featureType: "administrative",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 20
-      }
-    ]
-  },
-  {
-    featureType: "administrative",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 17
-      },
-      {
-        weight: 1.2
-      }
-    ]
-  },
-  {
-    featureType: "landscape",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 20
-      }
-    ]
-  },
-  {
-    featureType: "poi",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 21
-      }
-    ]
-  },
-  {
-    featureType: "road.highway",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 17
-      }
-    ]
-  },
-  {
-    featureType: "road.highway",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 29
-      },
-      {
-        weight: 0.2
-      }
-    ]
-  },
-  {
-    featureType: "road.arterial",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 18
-      }
-    ]
-  },
-  {
-    featureType: "road.local",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 16
-      }
-    ]
-  },
-  {
-    featureType: "transit",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 19
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 17
-      }
-    ]
-  }
-];
-
 export class MainMap extends React.Component<Partial<IMainMapProps>, {}> {
   public render() {
     return (
@@ -200,7 +31,7 @@ export class MainMap extends React.Component<Partial<IMainMapProps>, {}> {
           defaultCenter={
             new google.maps.LatLng(DEFAULT_LAT_SINGAPORE, DEFAULT_LNG_SINGAPORE)
           }
-          defaultOptions={{ styles: exampleMapStyles }}
+          defaultOptions={{ styles: darkStyle }}
         >
           {this.polyline()}
         </GoogleMap>

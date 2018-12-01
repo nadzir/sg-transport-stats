@@ -2,7 +2,7 @@ import { number } from "prop-types";
 
 declare module "lta" {
 
-    interface ltaBusStop {
+    export interface ltaBusStop {
         BusStopCode: string,
         Description: string,
         Latitude: number,

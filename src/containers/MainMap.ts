@@ -1,4 +1,4 @@
-import { addDirection, loadPassengerVolAsync, setTime } from "@src/actions";
+import { loadPassengerVolAsync, setTime } from "@src/actions";
 import {
   containerElement,
   IMainMapProps,
@@ -22,7 +22,7 @@ const mapStateToProps = (state: RootState): IMainMapProps => ({
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
   loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync()),
-  setTime: (time: string) => dispatch(setTime(time))
+  setTime: (time: number) => dispatch(setTime(time))
 });
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
