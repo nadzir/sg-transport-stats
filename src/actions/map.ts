@@ -5,6 +5,6 @@ export const addDirection = createAction(
   resolve => (direction: google.maps.DirectionsResult) => resolve({ direction })
 );
 
-export const setTime = createAction("SET_TIME", resolve => (time: string) =>
+export const setTime = createAction("SET_TIME", resolve => (time: number) =>
   resolve({ time })
 );

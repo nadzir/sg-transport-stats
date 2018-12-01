@@ -1,3 +1,5 @@
+import { TopBar } from "@src/components/TopBar";
+import { BusRoutesContainer } from "@src/containers/BusRoutes";
 import { MainMapContainer } from "@src/containers/MainMap";
 import * as React from "react";
 import { hot } from "react-hot-loader";
@@ -22,7 +24,8 @@ class InnerApp extends React.Component<{}, {}> {
   public render() {
     return (
       <div>
-        <MainMapContainer />
+        <TopBar />
+        <BusRoutesContainer />
       </div>
     );
   }

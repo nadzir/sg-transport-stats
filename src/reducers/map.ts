@@ -4,7 +4,7 @@ import { getType } from "typesafe-actions";
 
 export interface IMapState {
   directions: google.maps.DirectionsResult[];
-  time?: string;
+  time?: number;
 }
 
 const initValue = {
