@@ -40,11 +40,6 @@ module.exports = {
         include: path.resolve(__dirname, "src"),
         loaders: ["style-loader", "css-loader"]
       },
-      {
-        test: /\.css$/,
-        include: path.resolve(__dirname, "node_modules"),
-        loaders: ["style-loader", "css-loader"]
-      },
       // PostCSS
       {
         test: /\.scss$/,

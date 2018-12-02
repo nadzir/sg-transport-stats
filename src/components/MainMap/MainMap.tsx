@@ -33,7 +33,7 @@ export class MainMap extends React.Component<Partial<IMainMapProps>, {}> {
           }
           defaultOptions={{ styles: darkStyle }}
         >
-          {this.polyline()}
+          {/* {this.polyline()} */}
         </GoogleMap>
       </Fragment>
     );
