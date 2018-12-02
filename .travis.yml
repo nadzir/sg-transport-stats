@@ -6,9 +6,9 @@ before_install:
 - pip install --user awscli
 - export PATH=$PATH:$HOME/.local/bin
 script:
-- eval $(aws ecr get-login --region ap-southeast-1)
+- eval $(aws ecr get-login --no-include-email --region ap-southeast-1)
 - docker-compose build 
-- docker tag transport-frontend:latest $AWS_ECR_IMAGE
+- docker tag transport-frontend $AWS_ECR_IMAGE
 - docker push $AWS_ECR_IMAGE
 env:
   global:
