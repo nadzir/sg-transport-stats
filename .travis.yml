@@ -7,7 +7,7 @@ before_install:
 - export PATH=$PATH:$HOME/.local/bin
 script:
 - eval $(aws ecr get-login --region ap-southeast-1)
-- docker-compose build -t transport-frontend
+- docker-compose build 
 - docker tag transport-frontend:latest $AWS_ECR_IMAGE:latest
 - docker push $AWS_ECR_IMAGE:latest
 env:
