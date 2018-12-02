@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "name": "jsapp-boilerplate",
+  "name": "sg-lta-stats",
   "version": "0.0.1",
   "scripts": {
     "build:github": "cross-env APP_ENV=github yarn build:optimized",
