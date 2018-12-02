@@ -5,6 +5,7 @@ services:
       context: .
       args:
         NODE_ENV: production
+    image: transport-frontend
     restart: always
     expose:
       - 8080
