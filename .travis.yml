@@ -10,6 +10,7 @@ script:
 - docker-compose build 
 - docker tag transport-frontend $AWS_ECR_IMAGE
 - docker push $AWS_ECR_IMAGE
+- ecs-deploy -c $AWS_CLUSTER_NAME -i $AWS_ECR_IMAGE
 env:
   global:
   - secure: bGsnlwHvzz1KJwhC1a/L7/HKqu5OE38HUzGi0A46RbjANZ5Yqd8HnC7HewSBPpyWJI1rmFGM/7COROpC+0yj2yez39M7YaoVAZh9HL/Li1yjfhXjHu75iwmo8XaMJH6mvozmEO0co6+jWumveilEu8/YcMAsnfyAuLlZlcdx3JbeQ76mDF2gZS+AEsvW/RTzbputlfP/Kp/nO2fIh/PhGvynudn9LD15Aq5+xGFdYTHAx9VzM98gszFPjtCBh6BrzqmrKCNwPFMzCV+N/T3yMg4frNLsGHVwKc08weIoxFs4mWSNyNXg8kdDNp4ThXwu1JGpQTX4/3CJLnvHDSxamSWyJF8BUeqNOOITf9djsc9TWn0Zpzf4isUvgQaMQPb1G6pgbXPzMexH9h0kdQ6iYEhsLEYEmg/vEx+ZsR+hO7PdPZwWWvVkyiGuXVk+hNbvqkNHHS7txyKAxKIUBRkQVS8FQmt+PZ5WcjgaJe+SdpgamK2hpEGdcSFsIabxknS3HeXAb5rdQO5jk9zuxGdy9WQs8GMPnKl8D7uAU68PToS+LfOZ/8bHrz99htg8TZF9sOkv6vSjl93eImuKWoj9kvcJNKSMa3v3BePR9Uran6V6k//JKf+CGJOniwwoq5rTMnm1BZRAPQa7APGFnsXRmLZ85yGmrp7MBp2fa1lHI7w=
