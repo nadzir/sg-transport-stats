@@ -10,9 +10,10 @@ yarn d
 
 ## TODO
 
-- [ ] Pipeline
-- [ ] Build docker image
-- [ ] Deploy to aws
+- [x] Pipeline
+- [x] Build docker image
+- [x] Deploy to aws
+- [ ] Connect to backend
 
 
 ## Credits
