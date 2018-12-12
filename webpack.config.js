@@ -91,10 +91,10 @@ module.exports = {
   },
 
   plugins: [
-    new Dotenv(),
     // Inject app config at build-time: see comments in config/index.ts for details
     new webpack.DefinePlugin({
-      __WEBPACK_DEFINE_CONFIG_JS_OBJ__: JSON.stringify(config)
+      __WEBPACK_DEFINE_CONFIG_JS_OBJ__: JSON.stringify(config),
+      __BACKEND_HOST__: JSON.stringify(process.env.BACKEND_HOST)
     }),
     new webpack.NamedModulesPlugin(),
     ...(DEV

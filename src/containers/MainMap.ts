@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
 });
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY || "";
+console.log({google: process.env.GOOGLE_MAP_API_KEY});
 const googleMapReactProps = withProps({
   containerElement,
   googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,
