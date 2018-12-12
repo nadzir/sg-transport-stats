@@ -16,7 +16,8 @@ export const setPassengerVols = createAction(
 export const loadPassengerVolAsync = (): any => (
   dispatch: Dispatch<ReturnType<typeof setPassengerVols>>
 ) => {
-  axios.get("http://localhost:3000/api/passengerVol").then(({ data }) => {
+  const backendHost = process.env.BACKEND_HOST;
+  axios.get(`${backendHost}/api/passengerVol`).then(({ data }) => {
     dispatch(setPassengerVols(data));
   });
 };
