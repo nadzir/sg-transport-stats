@@ -16,6 +16,9 @@ RUN yarn install --frozen-lockfile \
     && yarn cache clean
 
 ARG NODE_ENV=production
+ARG BACKEND_HOST
+ARG GOOGLE_MAP_API_KEY
+
 COPY . /usr/src/app
 RUN yarn build:production
 

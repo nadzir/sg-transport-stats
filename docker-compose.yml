@@ -5,6 +5,9 @@ services:
       context: .
       args:
         NODE_ENV: production
+        BACKEND_HOST: ${BACKEND_HOST}
+        GOOGLE_MAP_API_KEY: ${GOOGLE_MAP_API_KEY}
+
     image: transport-frontend
     restart: always
     expose:
