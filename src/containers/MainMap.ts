@@ -16,13 +16,11 @@ import { compose, lifecycle, withProps } from "recompose";
 const mapStateToProps = (state: RootState): IMainMapProps => ({
   busStops: state.lta.busStops,
   directions: state.map.directions,
-  passengerVols: state.lta.passengerVolumes,
-  time: state.map.time || 10
+  passengerVols: state.lta.passengerVolumes
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({
-  loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync()),
-  setTime: (time: number) => dispatch(setTime(time))
+  loadPassengerVolAsync: () => dispatch(loadPassengerVolAsync())
 });
 
 const apiKey = process.env.GOOGLE_MAP_API_KEY;

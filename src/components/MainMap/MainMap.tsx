@@ -4,8 +4,8 @@ import {
   DEFAULT_MAP_ZOOM
 } from "@src/constants/map";
 import { ltaBusStop, ltaPassengerVolume } from "lta";
-import React, { Fragment } from "react";
-import { DirectionsRenderer, GoogleMap, Polyline } from "react-google-maps";
+import React from "react";
+import { GoogleMap, Polyline } from "react-google-maps";
 import { darkStyle } from "./MainMap.constants";
 
 export interface IMainMapProps {
@@ -25,17 +25,15 @@ export const mapElement = <div style={{ height: `100%` }} />;
 export class MainMap extends React.Component<Partial<IMainMapProps>, {}> {
   public render() {
     return (
-      <Fragment>
-        <GoogleMap
-          defaultZoom={DEFAULT_MAP_ZOOM}
-          defaultCenter={
-            new google.maps.LatLng(DEFAULT_LAT_SINGAPORE, DEFAULT_LNG_SINGAPORE)
-          }
-          defaultOptions={{ styles: darkStyle }}
-        >
-          {this.polyline()}
-        </GoogleMap>
-      </Fragment>
+      <GoogleMap
+        defaultZoom={DEFAULT_MAP_ZOOM}
+        defaultCenter={
+          new google.maps.LatLng(DEFAULT_LAT_SINGAPORE, DEFAULT_LNG_SINGAPORE)
+        }
+        defaultOptions={{ styles: darkStyle }}
+      >
+        {this.polyline()}
+      </GoogleMap>
     );
   }
 
@@ -73,11 +71,5 @@ export class MainMap extends React.Component<Partial<IMainMapProps>, {}> {
       return "#dd6e6e";
     }
     return "#cc0000";
-  }
-
-  private directions() {
-    return (this.props.directions || []).map(direction => (
-      <DirectionsRenderer directions={direction} />
-    ));
   }
 }

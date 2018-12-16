@@ -1,8 +1,8 @@
 import axios from "axios";
 import { ltaBusStop, ltaPassengerVolume } from "lta";
+import { string } from "prop-types";
 import { Dispatch } from "redux";
 import { createAction } from "typesafe-actions";
-import { string } from "prop-types";
 
 export const setBusStops = createAction(
   "SET_BUS_STOP",

@@ -21,25 +21,22 @@ const renderLabel = (val: number) => {
 // export class BusRoutes extends React.Component<IBusRoutesProps, {}> {
 export const BusRoutes = ({ setTime, time }: IBusRoutesProps) => (
   <React.Fragment>
-    <Card interactive={true} elevation={Elevation.TWO} className="bp3-dark">
-      {/* <h5><a href="#">Card heading</a></h5> */}
+    <Card elevation={Elevation.ZERO} className="bp3-dark">
+      <h4>Popular bus routes in Singapore</h4>
+      <p>Drag the slider to see the most popular routes throughout the day</p>
+      <Card elevation={Elevation.ZERO} className="bp3-dark">
+        <Slider
+          min={7}
+          max={24}
+          stepSize={1}
+          labelStepSize={1}
+          onChange={value => (setTime ? setTime(value) : noop)}
+          labelRenderer={renderLabel}
+          showTrackFill={false}
+          value={time}
+        />
+      </Card>
       <MainMapContainer />
-    </Card>
-
-    <Card interactive={true} elevation={Elevation.TWO} className="bp3-dark">
-      <h3>
-        <a href="#">Time</a>
-      </h3>
-      <Slider
-        min={7}
-        max={24}
-        stepSize={1}
-        labelStepSize={1}
-        onChange={value => (setTime ? setTime(value) : noop)}
-        labelRenderer={renderLabel}
-        showTrackFill={false}
-        value={time}
-      />
     </Card>
   </React.Fragment>
 );
