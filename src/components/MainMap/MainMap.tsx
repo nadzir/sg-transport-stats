@@ -15,7 +15,7 @@ export interface IMainMapProps {
   addDirection?: (direction: google.maps.DirectionsResult) => any;
   loadPassengerVolAsync?: () => any;
   setTime?: () => any;
-  time?: string;
+  time?: number;
 }
 
 export const containerElement = <div style={{ height: `1000px` }} />;

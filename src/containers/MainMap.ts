@@ -16,7 +16,8 @@ import { compose, lifecycle, withProps } from "recompose";
 const mapStateToProps = (state: RootState): IMainMapProps => ({
   busStops: state.lta.busStops,
   directions: state.map.directions,
-  passengerVols: state.lta.passengerVolumes
+  passengerVols: state.lta.passengerVolumes,
+  time: state.map.time
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IMainMapProps => ({

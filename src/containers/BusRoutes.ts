@@ -4,7 +4,7 @@ import { RootDispatch, RootState } from "@src/types";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state: RootState): IBusRoutesProps => ({
-  time: state.map.time || 10
+  time: state.map.time
 });
 
 const mapDispatchToProps = (dispatch: RootDispatch): IBusRoutesProps => ({
